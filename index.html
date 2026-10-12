@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>أشورال | Ashural — تقنية تحمل نبض الرعاية الحقيقية</title>
-<meta name="description" content="أشورال شركة عراقية للتقنية مقرها البصرة، تبني منصات رقمية موثوقة للخدمات الأساسية، وأول منتجاتها تطبيق رعايتي للرعاية التمريضية المنزلية." />
+<title>رعايتي | Reayati — تطبيق الرعاية التمريضية المنزلية من أشورال</title>
+<meta name="description" content="رعايتي (Reayati) تطبيق عراقي للرعاية التمريضية المنزلية من تطوير شركة أشورال في البصرة: اطلب ممرضاً أو ممرضة موثّقين إلى منزلك، بسعر واضح وتتبّع مباشر." />
+<link rel="canonical" href="https://ashural.com/reayati/" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -232,6 +233,10 @@
   .feature-item .ftext b{display:block; font-size:14.5px; font-weight:700; margin-bottom:2px;}
   .feature-item .ftext span{font-size:13.5px; color:var(--slate);}
 
+  .app-links{display:flex; gap:12px; flex-wrap:wrap; margin-top:30px;}
+  .app-links .btn-primary, .app-links .btn-ghost{font-size:14.5px; padding:12px 22px;}
+  .app-name-en{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--slate); letter-spacing:.06em; margin-top:6px;}
+
   .next-project{
     margin-top:56px; padding-top:40px; border-top:1px solid var(--line-soft);
     display:flex; align-items:baseline; gap:20px; flex-wrap:wrap;
@@ -300,12 +305,59 @@
     .pulse-wrap{height:110px;}
   }
 </style>
+<style>
+  .r-hero{padding:90px 0 60px;}
+  .r-hero h1{font-size:clamp(34px,5vw,54px); font-weight:800; line-height:1.3; margin:20px 0 8px;}
+  .r-hero h1 span{color:var(--brand-bright);}
+  .r-en{font-family:'IBM Plex Mono',monospace; color:var(--slate); letter-spacing:.08em; font-size:14px; margin-bottom:22px;}
+  .r-hero p.lead{font-size:17px; color:var(--slate); max-width:620px; margin-bottom:34px;}
+  .r-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .r-card{background:var(--panel); border:1px solid var(--line-soft); border-radius:var(--radius); padding:26px;}
+  .r-card h3{font-size:16.5px; font-weight:800; margin-bottom:8px;}
+  .r-card p{font-size:14px; color:var(--slate);}
+  .r-note{font-size:13px; color:var(--slate-dim); margin-top:16px;}
+  .r-list{display:grid; gap:10px; margin-top:8px;}
+  .r-list a{color:var(--brand-bright); font-weight:700;}
+  @media (max-width:860px){ .r-grid{grid-template-columns:1fr;} }
+  /* ===== CATALOG ===== */
+  .cat-chapter{margin-top:64px;}
+  .cat-chapter:first-of-type{margin-top:0;}
+  .cat-head{display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:26px; padding-bottom:16px; border-bottom:1px solid var(--line-soft);}
+  .cat-head .tag{font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--brand-bright); border:1px solid var(--line); border-radius:100px; padding:4px 12px;}
+  .cat-head h3{font-size:clamp(22px,2.6vw,28px); font-weight:800;}
+  .cat-head p{color:var(--slate); font-size:14.5px;}
+  .cat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .shot{background:var(--panel); border:1px solid var(--line-soft); border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column; transition:transform .25s, border-color .25s;}
+  .shot:hover{transform:translateY(-3px); border-color:var(--line);}
+  .shot button{all:unset; cursor:zoom-in; display:block; aspect-ratio:4/5; background:var(--panel-2);}
+  .shot button:focus-visible{outline:2px solid var(--brand-bright); outline-offset:-2px;}
+  .shot img{width:100%; height:100%; object-fit:cover;}
+  .shot .cap{padding:18px 20px 22px;}
+  .shot .cap .n{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--slate-dim);}
+  .shot .cap b{display:block; font-size:16px; font-weight:800; margin:4px 0 6px;}
+  .shot .cap span{font-size:13.5px; color:var(--slate);}
+  @media (max-width:980px){ .cat-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .cat-grid{grid-template-columns:1fr;} }
+
+  .lb{position:fixed; inset:0; z-index:100; background:rgba(5,8,7,.94); display:none; align-items:center; justify-content:center; padding:24px;}
+  .lb.open{display:flex;}
+  .lb figure{max-width:min(560px,100%); width:100%; text-align:center;}
+  .lb img{width:100%; height:auto; max-height:78vh; object-fit:contain; border-radius:14px; margin:0 auto;}
+  .lb figcaption{margin-top:14px; font-size:15px; font-weight:700;}
+  .lb figcaption small{display:block; font-weight:500; color:var(--slate); font-size:13.5px; margin-top:4px;}
+  .lb .lb-btn{position:absolute; background:var(--panel); color:var(--paper); border:1px solid var(--line); width:46px; height:46px; border-radius:50%; font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center;}
+  .lb .lb-btn:hover{border-color:var(--brand-bright);}
+  .lb .lb-close{top:18px; left:18px;}
+  .lb .lb-prev{right:18px; top:50%; transform:translateY(-50%);}
+  .lb .lb-next{left:18px; top:50%; transform:translateY(-50%);}
+  @media (max-width:560px){ .lb .lb-prev,.lb .lb-next{top:auto; bottom:18px; transform:none;} }
+</style>
 </head>
 <body>
 
 <header>
   <nav class="wrap">
-    <a href="#top" class="brand-lockup">
+    <a href="/" class="brand-lockup">
       <svg class="logo-mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -322,271 +374,188 @@
       <span class="name">أشورال<b>.</b></span>
     </a>
     <div class="nav-links">
-      <a href="#about">من نحن</a>
-      <a href="#services">خدماتنا</a>
-      <a href="#product">مشاريعنا</a>
-      <a href="#contact">تواصل معنا</a>
+      <a href="/#about">من نحن</a>
+      <a href="/#services">خدماتنا</a>
+      <a href="/reayati/">رعايتي</a>
+      <a href="#screens">صور التطبيق</a>
+      <a href="/#contact">تواصل معنا</a>
     </div>
-    <a href="#contact" class="nav-cta">تواصل معنا</a>
+    <a href="https://app.ashural.com" class="nav-cta" target="_blank" rel="noopener">افتح التطبيق</a>
   </nav>
 </header>
 
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-grid-bg"></div>
+<main>
+  <section class="r-hero">
     <div class="wrap">
-      <div class="hero-content">
-        <span class="eyebrow">شركة عراقية لتطوير التطبيقات — البصرة</span>
-        <h1>نطوّر ونُدير برمجيات تحمل <span>نبض</span> العراق الرقمي</h1>
-        <p class="lead">
-          أشورال شركة عراقية لتطوير التطبيقات وإدارة البرمجيات، مقرّها محافظة البصرة.
-          نبني منصات وتطبيقات موثوقة من الفكرة إلى التشغيل اليومي، وأحد مشاريعنا الحالية
-          تطبيق «رعايتي» للرعاية التمريضية المنزلية.
-        </p>
-        <div class="hero-actions">
-          <a href="#services" class="btn-primary">تعرّف على خدماتنا</a>
-          <a href="#contact" class="btn-ghost">تواصل معنا</a>
-        </div>
+      <span class="eyebrow">منتج من أشورال — ASHURAL</span>
+      <h1>رعايتي — <span>رعاية تمريضية</span> تصلك إلى البيت</h1>
+      <div class="r-en">REAYATI — HOME NURSING CARE</div>
+      <p class="lead">
+        رعايتي تطبيق عراقي طوّرته شركة أشورال في البصرة، يربط العائلات بممرضين وممرضات
+        موثّقين لتقديم الرعاية الصحية داخل المنزل: حقن، تضميد، قياس الضغط والسكر، رعاية ما بعد العمليات
+        ورعاية كبار السن — بسعر واضح قبل الطلب، وتتبّع مباشر لوصول مقدّم الخدمة.
+      </p>
+      <div class="hero-actions">
+        <a href="https://play.google.com/store/apps/details?id=com.iqcare.nursing" class="btn-primary" target="_blank" rel="noopener">حمّل من Google Play</a>
+        <a href="https://app.ashural.com" class="btn-ghost" target="_blank" rel="noopener">استخدم نسخة الويب</a>
+      </div>
+      <p class="r-note">التطبيق على Google Play في مرحلة الاختبار حالياً، وسيكون متاحاً للجميع قريباً. نسخة الويب متاحة الآن.</p>
+    </div>
+  </section>
+
+
+  <section id="screens">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">جولة داخل التطبيق</span>
+        <h2>رعايتي من الداخل</h2>
+        <p>رحلة العميل كاملة، من تسجيل الدخول حتى تقرير الزيارة. اضغط على أي صورة لعرضها بالحجم الكامل.</p>
       </div>
 
-      <div class="pulse-wrap">
-        <svg viewBox="0 0 1200 150" preserveAspectRatio="none">
-          <path class="pulse-line-dim" d="M0,75 L1200,75"/>
-          <path class="pulse-line" d="M0,75 L160,75 L185,75 L205,20 L225,130 L245,45 L265,75 L340,75 L365,75 L385,60 L405,90 L425,75 L520,75 L560,75 L560,35 L620,35 L620,115 L680,115 L680,75 L1200,75"/>
-        </svg>
-        <div class="pulse-caption">
-          <span>ASHURAL // SOFTWARE STUDIO</span>
-          <span>BASRA, IRAQ</span>
+      <div class="cat-chapter">
+        <div class="cat-head"><span class="tag">الفصل ١</span><h3>تبدأ من هنا</h3><p>حساب واحد، وكل شيء بين يديك.</p></div>
+        <div class="cat-grid">
+          <figure class="shot">
+            <button type="button" data-i="0" aria-label="عرض: دخول سهل وآمن"><img src="img/09-login-s.jpg" data-full="img/09-login.jpg" alt="دخول سهل وآمن — بالعربية والكوردية والإنجليزية، مع حفظ تسجيل الدخول واسترجاع كلمة المرور." width="540" height="675" loading="lazy" decoding="async"></button>
+            <figcaption class="cap"><span class="n">01</span><b>دخول سهل وآمن</b><span>بالعربية والكوردية والإنجليزية، مع حفظ تسجيل الدخول واسترجاع كلمة المرور.</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <button type="button" data-i="1" aria-label="عرض: رعاية تمريضية توصل لبيتك"><img src="img/01-home-s.jpg" data-full="img/01-home.jpg" alt="رعاية تمريضية توصل لبيتك — اطلب ممرّضاً أو ممرّضة موثّقين من موبايلك، طلباً عاجلاً أو بموعد." width="540" height="675" loading="lazy" decoding="async"></button>
+            <figcaption class="cap"><span class="n">02</span><b>رعاية تمريضية توصل لبيتك</b><span>اطلب ممرّضاً أو ممرّضة موثّقين من موبايلك، طلباً عاجلاً أو بموعد.</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <button type="button" data-i="2" aria-label="عرض: ممرّضون موثّقون بخبرة وتقييم"><img src="img/04-nurse-s.jpg" data-full="img/04-nurse.jpg" alt="ممرّضون موثّقون بخبرة وتقييم — سنوات الخبرة، المهام المنجزة، وتقييم العملاء قبل أن تختار." width="540" height="675" loading="lazy" decoding="async"></button>
+            <figcaption class="cap"><span class="n">03</span><b>ممرّضون موثّقون بخبرة وتقييم</b><span>سنوات الخبرة، المهام المنجزة، وتقييم العملاء قبل أن تختار.</span></figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="cat-chapter">
+        <div class="cat-head"><span class="tag">الفصل ٢</span><h3>الطلب</h3><p>أربع خطوات، وسعر واضح قبل التأكيد.</p></div>
+        <div class="cat-grid">
+          <figure class="shot">
+            <button type="button" data-i="3" aria-label="عرض: اطلب الخدمة بأربع خطوات"><img src="img/02-request-s.jpg" data-full="img/02-request.jpg" alt="اطلب الخدمة بأربع خطوات — بيانات المريض، نوع الرعاية، العنوان، ثم الدفع." width="540" height="675" loading="lazy" decoding="async"></button>
+            <figcaption class="cap"><span class="n">04</span><b>اطلب الخدمة بأربع خطوات</b><span>بيانات المريض، نوع الرعاية، العنوان، ثم الدفع.</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <button type="button" data-i="4" aria-label="عرض: حالة طلبك خطوة بخطوة"><img src="img/05-status-s.jpg" data-full="img/05-status.jpg" alt="حالة طلبك خطوة بخطوة — من انتظار القبول إلى الطريق إلى اكتمال الزيارة." width="540" height="675" loading="lazy" decoding="async"></button>
+            <figcaption class="cap"><span class="n">05</span><b>حالة طلبك خطوة بخطوة</b><span>من انتظار القبول إلى الطريق إلى اكتمال الزيارة.</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <button type="button" data-i="5" aria-label="عرض: إشعارات فورية بكل خطوة"><img src="img/08-notifications-s.jpg" data-full="img/08-notifications.jpg" alt="إشعارات فورية بكل خطوة — تعرف متى قُبل طلبك ومتى وصل الممرّض ومتى اكتملت المهمة." width="540" height="675" loading="lazy" decoding="async"></button>
+            <figcaption class="cap"><span class="n">06</span><b>إشعارات فورية بكل خطوة</b><span>تعرف متى قُبل طلبك ومتى وصل الممرّض ومتى اكتملت المهمة.</span></figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="cat-chapter">
+        <div class="cat-head"><span class="tag">الفصل ٣</span><h3>أثناء الزيارة</h3><p>أنت على اطلاع، ومعك من يساعدك.</p></div>
+        <div class="cat-grid">
+          <figure class="shot">
+            <button type="button" data-i="6" aria-label="عرض: تابع الممرّض لحظة بلحظة"><img src="img/03-tracking-s.jpg" data-full="img/03-tracking.jpg" alt="تابع الممرّض لحظة بلحظة — موقعه على الخريطة، دردشة واتصال صوتي داخل التطبيق، وزر طوارئ." width="540" height="675" loading="lazy" decoding="async"></button>
+            <figcaption class="cap"><span class="n">07</span><b>تابع الممرّض لحظة بلحظة</b><span>موقعه على الخريطة، دردشة واتصال صوتي داخل التطبيق، وزر طوارئ.</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <button type="button" data-i="7" aria-label="عرض: تحتاج إجراءً إضافياً؟"><img src="img/06-extra-s.jpg" data-full="img/06-extra.jpg" alt="تحتاج إجراءً إضافياً؟ — أضفه أثناء الزيارة بسعر واضح ورمز تأكيد، دون رسوم زيارة جديدة." width="540" height="675" loading="lazy" decoding="async"></button>
+            <figcaption class="cap"><span class="n">08</span><b>تحتاج إجراءً إضافياً؟</b><span>أضفه أثناء الزيارة بسعر واضح ورمز تأكيد، دون رسوم زيارة جديدة.</span></figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="cat-chapter">
+        <div class="cat-head"><span class="tag">الفصل ٤</span><h3>بعد الزيارة</h3><p>سجلّ يبقى معك.</p></div>
+        <div class="cat-grid">
+          <figure class="shot">
+            <button type="button" data-i="8" aria-label="عرض: تقرير بعد كل زيارة"><img src="img/07-report-s.jpg" data-full="img/07-report.jpg" alt="تقرير بعد كل زيارة — الضغط والسكر والحرارة والنبض، مع وصل PDF ومعلومات محمية." width="540" height="675" loading="lazy" decoding="async"></button>
+            <figcaption class="cap"><span class="n">09</span><b>تقرير بعد كل زيارة</b><span>الضغط والسكر والحرارة والنبض، مع وصل PDF ومعلومات محمية.</span></figcaption>
+          </figure>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
+  <section class="alt">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">من نحن</span>
-        <h2>شركة عراقية لتطوير التطبيقات وإدارة البرمجيات</h2>
-        <p>مقرّنا محافظة البصرة، ونعمل على تصميم وبناء وتشغيل تطبيقات وأنظمة برمجية بجودة تنافس ما هو متوفر عالمياً، بفهم دقيق لاحتياجات السوق العراقي.</p>
+      <div class="section-head">
+        <span class="eyebrow">كيف يعمل</span>
+        <h2>ثلاث خطوات للعميل</h2>
       </div>
-
-      <div class="about-layout">
-        <div class="about-text reveal">
-          <p>
-            أشورال ليست شركة منتج واحد، بل شركة برمجيات متكاملة: نصمم واجهات التطبيقات، نبني
-            الأنظمة الخلفية التي تشغّلها، وندير تشغيلها اليومي بعد الإطلاق. من الفكرة الأولى
-            إلى الصيانة والتطوير المستمر، نتولى المشروع بالكامل.
-          </p>
-          <p>
-            أحد مشاريعنا الحالية هو تطبيق «رعايتي»، منصة للرعاية التمريضية المنزلية تربط
-            العملاء بممرضين موثقين. نعمل على توسيع محفظة مشاريعنا لتشمل تطبيقات وأنظمة
-            في مجالات أخرى تخدم السوق العراقي.
-          </p>
-        </div>
-
-        <div class="pillars reveal">
-          <div class="pillar">
-            <span class="pillar-mark">٠١</span>
-            <div>
-              <h3>تطوير من الصفر</h3>
-              <p>نصمم وننفذ التطبيق كاملاً، من الواجهة إلى الخادم وقاعدة البيانات.</p>
-            </div>
-          </div>
-          <div class="pillar">
-            <span class="pillar-mark">٠٢</span>
-            <div>
-              <h3>إدارة برمجية مستمرة</h3>
-              <p>لا نسلّم المشروع وننسحب، بل نبقى على تشغيله وتطويره وصيانته.</p>
-            </div>
-          </div>
-          <div class="pillar">
-            <span class="pillar-mark">٠٣</span>
-            <div>
-              <h3>قرب من السوق العراقي</h3>
-              <p>نبني حلولاً مصمَّمة لظروف العراق تحديداً، لا نسخة مترجمة من منتج لسوق آخر.</p>
-            </div>
-          </div>
-        </div>
+      <div class="r-grid">
+        <div class="r-card"><h3>١. اختر الرعاية</h3><p>حدّد الإجراءات التي تحتاجها والموعد والعنوان، ويظهر لك السعر كاملاً قبل التأكيد.</p></div>
+        <div class="r-card"><h3>٢. يصلك ممرض موثّق</h3><p>يُرسل الطلب لأقرب ممرض متاح في منطقتك، ويمكنك متابعة وصوله على الخريطة.</p></div>
+        <div class="r-card"><h3>٣. قيّم واحصل على الوصل</h3><p>بعد انتهاء الزيارة تحصل على وصل بالخدمة، وتقيّم الممرض لتحافظ على جودة الخدمة.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services" class="alt">
+  <section>
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">ماذا نعمل</span>
-        <h2>من الفكرة إلى التشغيل اليومي</h2>
-        <p>نتولى دورة حياة المشروع البرمجي كاملة، لا نكتفي بتسليم كود وننسحب.</p>
-      </div>
-
-      <div class="steps reveal">
-        <div class="step">
-          <div class="num">٠١</div>
-          <h3>تطوير تطبيقات الجوال والويب</h3>
-          <p>نصمم وننفذ واجهات استخدام حديثة، لأنظمة أندرويد وiOS والويب، بتجربة مصممة للمستخدم العراقي.</p>
-        </div>
-        <div class="step">
-          <div class="num">٠٢</div>
-          <h3>الأنظمة الخلفية وقواعد البيانات</h3>
-          <p>نبني الخوادم وواجهات البرمجة (API) وقواعد البيانات التي تشغّل التطبيق بأمان واستقرار.</p>
-        </div>
-        <div class="step">
-          <div class="num">٠٣</div>
-          <h3>لوحات التحكم والإدارة</h3>
-          <p>ننشئ أنظمة إدارة داخلية تمكّن فرق العمل من متابعة وتشغيل المنصة يومياً بسهولة.</p>
-        </div>
-      </div>
-
-      <div class="next-project reveal">
-        <span class="eyebrow">وبعد الإطلاق</span>
-        <p>نستمر مع كل مشروع بعد إطلاقه: صيانة، تطوير مستمر، ودعم فني، بدل تسليمه وترك عملائنا وحدهم.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="alt">
-    <div class="wrap">
-      <div class="contact-layout">
-        <div class="contact-info reveal">
-          <span class="eyebrow">تواصل معنا</span>
-          <h2>نحب نسمع منك</h2>
-          <p>سواء كنت عميلاً، ممرضاً، أو مهتماً بالتعاون مع أشورال — نرد خلال يوم عمل واحد عادة.</p>
-          <div class="contact-rows">
-            <div class="contact-row"><span class="label">EMAIL</span><a class="val" href="mailto:info@ashural.com">info@ashural.com</a></div>
-            <div class="contact-row"><span class="label">LOCATION</span><span class="val">البصرة، العراق</span></div>
-            <div class="contact-row"><span class="label">PRODUCT</span><span class="val">رعايتي</span></div>
-          </div>
-        </div>
-
-        <form class="contact-form reveal" onsubmit="event.preventDefault(); this.reset(); document.getElementById('formOk').style.display='block';">
-          <div class="form-field">
-            <label>الاسم</label>
-            <input type="text" required placeholder="اسمك الكامل" />
-          </div>
-          <div class="form-field">
-            <label>البريد الإلكتروني</label>
-            <input type="email" required placeholder="you@example.com" />
-          </div>
-          <div class="form-field">
-            <label>رسالتك</label>
-            <textarea required placeholder="اكتب رسالتك هنا..."></textarea>
-          </div>
-          <button type="submit" class="form-submit">إرسال الرسالة</button>
-          <p class="form-note" id="formOk" style="display:none; color:#4cd9a8;">تم استلام رسالتك، سنرد قريباً.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECT SPOTLIGHT: REAYATI -->
-  <section id="product">
-    <div class="wrap">
-      <div class="product-layout">
-        <div class="phone-mock reveal">
-          <div class="phone-screen">
-            <div class="phone-header">
-              <div class="greet">مرحباً،</div>
-              <div class="name">عزيزي العميل</div>
-            </div>
-            <div class="phone-body">
-              <div class="phone-card">
-                <div class="t">طلب الخدمة</div>
-                <div class="s">ممرضة متخصصة تصلك في أسرع وقت</div>
-              </div>
-              <div class="phone-row"><div class="dot"></div><div class="txt"><div class="l1">رعاية ما بعد العمليات</div><div class="l2">البصرة — اليوم</div></div></div>
-              <div class="phone-row"><div class="dot"></div><div class="txt"><div class="l1">قياس السكري والضغط</div><div class="l2">أسبوعي</div></div></div>
-              <div class="phone-row"><div class="dot"></div><div class="txt"><div class="l1">رعاية كبار السن</div><div class="l2">حسب الطلب</div></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-text reveal">
-          <span class="eyebrow">من محفظة مشاريعنا</span>
-          <h2>رعايتي — رعاية تمريضية منزلية، بضغطة واحدة</h2>
-          <p>أحد التطبيقات التي طوّرتها أشورال بالكامل، يربط العملاء بممرضين وممرضات موثقين لتقديم الرعاية الصحية داخل المنزل، بشفافية كاملة في السعر والموعد وهوية مقدّم الخدمة.</p>
-
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#4cd9a8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              <div class="ftext"><b>طلب فوري</b><span>اختر نوع الرعاية والموعد، ويصلك تأكيد خلال دقائق.</span></div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#4cd9a8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              <div class="ftext"><b>ممرضون موثقون</b><span>كل مقدّم خدمة يمر بتحقق هوية وشهادة قبل تفعيل حسابه.</span></div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#4cd9a8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              <div class="ftext"><b>تتبّع مباشر</b><span>تعرف مكان الممرض وموعد وصوله لحظة بلحظة.</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- JOIN AS NURSE -->
-  <section id="join" class="alt">
-    <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head">
         <span class="eyebrow">للكوادر التمريضية</span>
-        <h2>كيف تنضم كممرض إلى رعايتي</h2>
-        <p>عملية بسيطة من ثلاث خطوات، مصمّمة لتوثّق كفاءتك دون أن تعقّد عليك البداية.</p>
-      </div>
-      <div class="steps reveal">
-        <div class="step">
-          <div class="num">١</div>
-          <h3>قدّم طلبك</h3>
-          <p>عبّئ بياناتك الأساسية ومعلوماتك المهنية داخل التطبيق.</p>
-        </div>
-        <div class="step">
-          <div class="num">٢</div>
-          <h3>وثّق هويتك</h3>
-          <p>ارفع الهوية والشهادة المهنية، ويراجعها فريقنا خلال وقت قصير.</p>
-        </div>
-        <div class="step">
-          <div class="num">٣</div>
-          <h3>ابدأ الاستلام</h3>
-          <p>بمجرد التفعيل، تبدأ باستلام طلبات الرعاية في منطقتك.</p>
-        </div>
+        <h2>انضم إلى رعايتي كممرض أو ممرضة</h2>
+        <p>قدّم طلبك من داخل التطبيق وارفع الهوية والشهادة المهنية. بعد مراجعة فريقنا وتفعيل حسابك تبدأ باستلام الطلبات القريبة منك.</p>
       </div>
     </div>
   </section>
 
+  <section class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">معلومات</span>
+        <h2>التواصل والخصوصية</h2>
+      </div>
+      <div class="r-list">
+        <div>المطوّر: شركة أشورال — البصرة، العراق</div>
+        <div>البريد: <a href="mailto:info@ashural.com">info@ashural.com</a></div>
+        <div>التطبيق على الويب: <a href="https://app.ashural.com" target="_blank" rel="noopener">app.ashural.com</a></div>
+        <div>معرّف التطبيق: <span style="font-family:'IBM Plex Mono',monospace">com.iqcare.nursing</span></div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
-
   <div class="wrap footer-row">
-    <div class="footer-brand">
-      <svg class="logo-mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="100" fill="#0f2e28"/>
-        <g fill="#edf3f0"><polygon points="100,46 146,150 128,150 118,126 82,126 72,150 54,150 100,46 100,80 92,108 108,108 100,80"/></g>
-      </svg>
-      <span>أشورال — Ashural</span>
-    </div>
+    <div class="footer-brand"><span>رعايتي — Reayati · من أشورال</span></div>
     <span class="copy">© 2026 ASHURAL · BASRA, IRAQ</span>
   </div>
 </footer>
 
-<script>
-  // Scroll-reveal
-  var els = document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, {threshold:0.12});
-    els.forEach(function(el){ io.observe(el); });
-  } else {
-    els.forEach(function(el){ el.classList.add('in'); });
-  }
-</script>
 
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="عرض الصورة">
+  <button class="lb-btn lb-close" type="button" aria-label="إغلاق">×</button>
+  <button class="lb-btn lb-prev" type="button" aria-label="السابق">›</button>
+  <button class="lb-btn lb-next" type="button" aria-label="التالي">‹</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+</div>
+<script>
+(function(){
+  var shots=[].slice.call(document.querySelectorAll('.shot'));
+  var lb=document.getElementById('lb'), img=lb.querySelector('img'), cap=lb.querySelector('figcaption');
+  var cur=0, last=null;
+  function show(i){
+    cur=(i+shots.length)%shots.length;
+    var s=shots[cur], t=s.querySelector('img');
+    img.src=t.getAttribute('data-full'); img.alt=t.alt;
+    cap.innerHTML='';
+    var b=document.createElement('span'); b.textContent=s.querySelector('.cap b').textContent;
+    var sm=document.createElement('small'); sm.textContent=s.querySelector('.cap span:last-child').textContent;
+    cap.appendChild(b); cap.appendChild(sm);
+  }
+  function open(i){ last=document.activeElement; show(i); lb.classList.add('open'); document.body.style.overflow='hidden'; lb.querySelector('.lb-close').focus(); }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow=''; if(last) last.focus(); }
+  shots.forEach(function(s,i){ s.querySelector('button').addEventListener('click',function(){ open(i); }); });
+  lb.querySelector('.lb-close').addEventListener('click',close);
+  lb.querySelector('.lb-prev').addEventListener('click',function(){ show(cur-1); });
+  lb.querySelector('.lb-next').addEventListener('click',function(){ show(cur+1); });
+  lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') close();
+    else if(e.key==='ArrowRight') show(cur-1);
+    else if(e.key==='ArrowLeft') show(cur+1);
+  });
+  var x0=null;
+  lb.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
+  lb.addEventListener('touchend',function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>50) show(dx>0?cur+1:cur-1); x0=null; });
+})();
+</script>
 </body>
 </html>
